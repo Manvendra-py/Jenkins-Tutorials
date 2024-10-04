@@ -15,7 +15,7 @@ pipeline {
 
         stage('Ckeckout SCM') {
             steps {
-                git branch: 'complete-prodcution-e2e-pipeline', credentialsId: 'github', url: https://github.com/Manvendra-py/Jenkins-Tutorials.git
+                git branch: 'complete-prodcution-e2e-pipeline', credentialsId: 'github', url : 'https://github.com/Manvendra-py/Jenkins-Tutorials.git'
             }
         }
     }
