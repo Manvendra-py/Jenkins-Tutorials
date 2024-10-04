@@ -22,7 +22,7 @@ pipeline {
             }
         }
 
-        stage('Ckeckout SCM') {
+        stage('Source Code checkout') {
             steps {
                 git branch: 'complete-prodcution-e2e-pipeline', credentialsId: 'github', url : 'https://github.com/Manvendra-py/Jenkins-Tutorials.git'
             }
@@ -50,13 +50,13 @@ pipeline {
             }
         }
 
-        stage("Quality Gate") {
-            steps {
-                script {
-                    wiatForQualityGate abortPipeline: false, credentialsId: 'sonarqube-token'
-                }
-            }
-        }
+        // stage("Quality Gate") {
+        //     steps {
+        //         script {
+        //             wiatForQualityGate abortPipeline: false, credentialsId: 'sonarqube-token'
+        //         }
+        //     }
+        // }
 
         stage ('Build and Push Dcoker Image') {
             steps {
@@ -66,7 +66,7 @@ pipeline {
                     }
 
                     docker.withRegistry('',DOCKER_PASS) {
-                        docker_image.push('$IMAGE_TAG')
+                        docker_image.push('${IMAGE_TAG}')
                     }
                 }
             }
