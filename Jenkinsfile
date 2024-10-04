@@ -18,5 +18,17 @@ pipeline {
                 git branch: 'complete-prodcution-e2e-pipeline', credentialsId: 'github', url : 'https://github.com/Manvendra-py/Jenkins-Tutorials.git'
             }
         }
+
+        stage('Build Application') {
+            steps{
+                sh 'mvn clean package'
+            }
+        }
+
+        stage('Test Application') {
+            steps {
+                sh 'mvn test'
+            }
+        }
     }
 }
