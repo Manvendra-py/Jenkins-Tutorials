@@ -9,7 +9,7 @@ pipeline {
     environment {
         APP_NAME = 'complete-prodcution-e2e-pipeline'
         RELEASE = '1.0.0'
-        DOCKER_USER = 'Manvendra'
+        DOCKER_USER = 'Manvendraa'
         DOCKER_PASS = 'jenkins-dockerhub-token'
         IMAGE_NAME = '${DOCKER_USR}' + '/' + '${APP_NAME}'
         IMAGE_TAG = '${RELEASE}-${BUILD_NUMBER}'
