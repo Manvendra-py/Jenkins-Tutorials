@@ -76,8 +76,7 @@ pipeline {
 
         stage ("Trigger Deployment Pipeline"){
             steps {
-                script {
-                    sh "curl -v -k --user manvendra:${JENKINS_API_TOKEN} -X POST -H 'cache-control: no-cache' -H 'content-type: application/x-www-form-urlencoded' --data 'IMAGE_TAG=${IMAGE_TAG}' 'http://localhost:8080/job/gitops-complete-pipeline/buildWithParameters?token=gitops-token'"
+                build 'gitops-production-pipeline'
                 }
             }
         }
