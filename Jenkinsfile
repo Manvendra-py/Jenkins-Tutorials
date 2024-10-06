@@ -77,7 +77,7 @@ pipeline {
         stage ("Trigger Deployment Pipeline"){
             steps {
                 script{
-                    build(job: "gitops-production-pipeline", parameters: (name: "IMAGE_TAG", value: "${IMAGE_TAG}"))
+                    build(job: "gitops-production-pipeline", parameters: [string(name: "IMAGE_TAG", value: "${IMAGE_TAG}")])
                 }
             }
         }
