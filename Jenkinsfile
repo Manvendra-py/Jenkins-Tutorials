@@ -76,8 +76,10 @@ pipeline {
 
         stage ("Trigger Deployment Pipeline"){
             steps {
-                build 'gitops-production-pipeline'
+                script{
+                    build 'gitops-production-pipeline'
                 }
+            }
             }
         }
     }
