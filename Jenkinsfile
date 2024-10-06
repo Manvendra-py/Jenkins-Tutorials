@@ -80,9 +80,9 @@ pipeline {
                     build 'gitops-production-pipeline'
                 }
             }
-            }
         }
     }
+
 
     post {
         failure {
